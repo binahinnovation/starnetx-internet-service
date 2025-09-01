@@ -329,7 +329,7 @@ CREATE POLICY "Users can view own profile" ON profiles FOR SELECT USING (auth.ui
 CREATE POLICY "Users can update own profile" ON profiles FOR UPDATE USING (auth.uid() = id);
 CREATE POLICY "Users can insert own profile" ON profiles FOR INSERT WITH CHECK (auth.uid() = id);
 CREATE POLICY "Admins can view all profiles" ON profiles FOR SELECT USING (get_user_role(auth.uid()) = 'admin');
-CREATE POLICY "Anyone can check referral codes" ON profiles FOR SELECT USING (true) WITH CHECK (false);
+CREATE POLICY "Anyone can check referral codes" ON profiles FOR SELECT USING (true);
 CREATE POLICY "Users can view referred users" ON profiles FOR SELECT USING (referred_by = auth.uid());
 
 CREATE POLICY "Anyone can view active plans" ON plans FOR SELECT USING (is_active = true);

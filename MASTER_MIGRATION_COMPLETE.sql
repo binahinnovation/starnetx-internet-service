@@ -423,8 +423,7 @@ USING (get_user_role(auth.uid()) = 'admin');
 DROP POLICY IF EXISTS "Anyone can check referral codes" ON profiles;
 CREATE POLICY "Anyone can check referral codes" 
 ON profiles FOR SELECT 
-USING (true)
-WITH CHECK (false);
+USING (true);
 
 DROP POLICY IF EXISTS "Users can view referred users" ON profiles;
 CREATE POLICY "Users can view referred users" 
